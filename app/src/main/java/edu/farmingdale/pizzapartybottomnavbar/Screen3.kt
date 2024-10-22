@@ -26,20 +26,25 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// ToDo 2 done: the slider should be able to change the text value of the screen
+// ToDo 2 : Done the slider should be able to change the text value of the screen
 
-// ToDo 3: Make the UI look better by adding a gradient background (vertical) and padding
+// ToDo 3: Done Make the UI look better by adding a gradient background (vertical) and padding
 
 @Composable
 fun Screen3() {
+    val cStops = arrayOf(
+        0.0f to Color.Gray,
+        0.5f to Color.White,
+        1.0f to Color.Gray
+    )
     var sliderValue by remember { mutableStateOf(0.5f) }
     var chkd by remember { mutableStateOf(true) }
 
 
     val context = LocalContext.current
-    Column ( modifier = Modifier.padding(horizontal = 20.dp).fillMaxSize(),
+    Column ( modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(colorStops = cStops )),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally){
+        horizontalAlignment = Alignment.CenterHorizontally,){
         Slider(value = sliderValue, onValueChange = { sliderValue=it }, Modifier.fillMaxWidth()
             , enabled = chkd)
 
@@ -50,7 +55,6 @@ fun Screen3() {
             context.startActivity(newInt) }) {
             Text(fontSize = 20.sp, text ="Call me")
         }
-
         Checkbox(checked = chkd, onCheckedChange = { chkd=it }, modifier = Modifier.padding(10.dp))
 
     }
