@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 // - The background color should be Color.Cyan
 // - Fix padding, alignment, and keypad type
 
-// ToDo 5:  Add the GpaAppScreen composable button that clears the input fields when clicked
+// ToDo 5: Done Add the GpaAppScreen composable button that clears the input fields when clicked
 
 
 @Composable
@@ -32,25 +32,24 @@ fun GpaAppScreen() {
     var gpa by remember { mutableStateOf("") }
     var backColor by remember { mutableStateOf(Color.Cyan) }
     var btnLabel by remember { mutableStateOf("Calulate GPA") }
-    val bkround = arrayOf(  // used to add create a color
-        0.0f to Color.Cyan,
-        0.5f to Color.Cyan,
-        1.0f to Color.Cyan)
 
-    Column(modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(colorStops = bkround )),
-       verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+
+
+    Column(
+        modifier = Modifier.fillMaxSize().background(backColor).padding(16.dp),
+        verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         TextField(
             value = grade1,
-            onValueChange = { grade1 = it },Modifier.padding(16.dp),
-            label = { Text("Course 1 Grade")}
+            onValueChange = { grade1 = it }, Modifier.padding(16.dp),
+            label = { Text("Course 1 Grade") }
         )
 
 
         TextField(
             value = grade2,
-            onValueChange = { grade2 = it },Modifier.padding(16.dp),
+            onValueChange = { grade2 = it }, Modifier.padding(16.dp),
             label = { Text("Course 2 Grade") },
         )
 
@@ -58,7 +57,7 @@ fun GpaAppScreen() {
 
         TextField(
             value = grade3,
-            onValueChange = { grade3 = it },Modifier.padding(16.dp),
+            onValueChange = { grade3 = it }, Modifier.padding(16.dp),
             label = { Text("Course 3 Grade") },
         )
 
@@ -93,12 +92,22 @@ fun GpaAppScreen() {
             Text(btnLabel)
         }
 
+        Button(
+            onClick = {
+                grade1 = ""
+                grade2 = ""
+                grade3 = ""
+            },
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text("Clear")
 
-        if (gpa.isNotEmpty()) {
-            Text(text = "GPA: $gpa")
+            if (gpa.isNotEmpty()) {
+                Text(text = "GPA: $gpa")
+            }
+
+
         }
-
-
     }
 }
 
