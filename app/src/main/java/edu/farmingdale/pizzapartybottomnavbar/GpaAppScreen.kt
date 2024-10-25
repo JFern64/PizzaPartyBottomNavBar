@@ -9,11 +9,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
-// ToDo 4: Match the UI as in drawable gpa_design.png. Use the following hints:
+// ToDo 4: Done Match the UI as in drawable gpa_design.png. Use the following hints:
 // - The background color should be Color.Cyan
 // - Fix padding, alignment, and keypad type
 
@@ -27,15 +28,17 @@ fun GpaAppScreen() {
     var grade2 by remember { mutableStateOf("") }
     var grade3 by remember { mutableStateOf("") }
 
-
     // Declare variables for GPA result and background color
     var gpa by remember { mutableStateOf("") }
-    var backColor by remember { mutableStateOf(Color.White) }
+    var backColor by remember { mutableStateOf(Color.Cyan) }
     var btnLabel by remember { mutableStateOf("Calulate GPA") }
+    val bkround = arrayOf(  // used to add create a color
+        0.0f to Color.Cyan,
+        0.5f to Color.Cyan,
+        1.0f to Color.Cyan)
 
-    Column(
-        modifier = Modifier
-        ,verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+    Column(modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(colorStops = bkround )),
+       verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         TextField(
@@ -47,7 +50,7 @@ fun GpaAppScreen() {
 
         TextField(
             value = grade2,
-            onValueChange = { grade2 = it },
+            onValueChange = { grade2 = it },Modifier.padding(16.dp),
             label = { Text("Course 2 Grade") },
         )
 
@@ -55,7 +58,7 @@ fun GpaAppScreen() {
 
         TextField(
             value = grade3,
-            onValueChange = { grade3 = it },
+            onValueChange = { grade3 = it },Modifier.padding(16.dp),
             label = { Text("Course 3 Grade") },
         )
 

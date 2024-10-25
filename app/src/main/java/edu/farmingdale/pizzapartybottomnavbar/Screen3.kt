@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun Screen3() {
-    val cStops = arrayOf(
+    val cStops = arrayOf(  // used to add create a color
         0.0f to Color.Gray,
         0.5f to Color.White,
         1.0f to Color.Gray
