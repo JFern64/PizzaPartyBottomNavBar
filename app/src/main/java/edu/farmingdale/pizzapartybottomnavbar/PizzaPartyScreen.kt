@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import kotlin.math.ceil
 
-// ToDo 6: Add another level of hunger that is Hungry that is in between Medium and Very hungry
+// ToDo 6: Done Add another level of hunger that is Hungry that is in between Medium and Very hungry
 
 // ToDo 7: Using the ViewModel class, create a new ViewModel class called PizzaPartyViewModel as
 // a subclass of ViewModel. Add the following properties to the PizzaPartyViewModel - see Brightspace
@@ -54,7 +54,7 @@ fun PizzaPartyScreen( modifier: Modifier = Modifier) {
         )
         RadioGroup(
             labelText = "How hungry?",
-            radioOptions = listOf("Light", "Medium", "Very hungry"),
+            radioOptions = listOf("Light", "Medium", "Hungry", "Very hungry"),
             selectedOption = hungerLevel,
             onSelected = { hungerLevel = it },
             modifier = modifier
@@ -142,6 +142,7 @@ fun calculateNumPizzas(
     val slicesPerPerson = when (hungerLevel) {
         "Light" -> 2
         "Medium" -> 3
+        "Hungry" -> 4
         else -> 5
     }
 
