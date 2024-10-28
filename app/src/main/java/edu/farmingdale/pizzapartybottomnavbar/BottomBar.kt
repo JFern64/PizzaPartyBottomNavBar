@@ -19,12 +19,12 @@ fun BottomBar(
     state: Boolean,
     modifier: Modifier = Modifier
 ) {
-    val screens = listOf(
+   /* val screens = listOf(
         BottomNavigationItems.PizzaScreen,
         BottomNavigationItems.GpaAppScreen,
         BottomNavigationItems.Screen3
     )
-
+*/
     NavigationBar(
         modifier = modifier,
         containerColor = Color.LightGray,
@@ -32,7 +32,7 @@ fun BottomBar(
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
-        screens.forEach { screen ->
+        /* screens.forEach { screen ->
             NavigationBarItem(
                 label = {
                     Text(text = screen.title!!)
@@ -58,6 +58,6 @@ fun BottomBar(
                     indicatorColor = Color.White
                 ),
             )
-        }
+        } */
     }
 }

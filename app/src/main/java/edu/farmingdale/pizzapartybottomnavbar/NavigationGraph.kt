@@ -24,9 +24,10 @@ fun NavigationGraph(navController: NavHostController, onBottomBarVisibilityChang
             onBottomBarVisibilityChanged(true)
             Screen3()
         }
+
     }
 }
 
-// ToDo 8: This is the homework:
+// ToDo 8: Done This is the homework:
 // add a drawer navigation as described in drawable drawermenu.png
 // Improve the design and integration of the app for 5 extra credit points.

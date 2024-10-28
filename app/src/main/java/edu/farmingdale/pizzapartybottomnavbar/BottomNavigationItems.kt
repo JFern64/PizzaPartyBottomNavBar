@@ -31,3 +31,4 @@ sealed class BottomNavigationItems(
         icon = Icons.Outlined.AccountCircle
     )
 }
+
